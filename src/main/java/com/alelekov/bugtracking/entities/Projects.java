@@ -2,6 +2,7 @@ package com.alelekov.bugtracking.entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "projects")
@@ -16,10 +17,15 @@ public class Projects {
 
     @Column(name = "discription")
     private String discriptionProject;
+
     @Column(name = "date_create")
     private Date dateCreate;
+
     @Column(name = "date_update")
     private Date dateUpdate;
+
+    @OneToMany(mappedBy = "projects")
+    List<Tasks> tasks;
 
     public Projects() {
     }
