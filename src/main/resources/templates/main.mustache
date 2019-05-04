@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>
+    <form method="post">
+        <input type="text" name="nameProject" placeholder="Введите название проекта" />
+        <input type="text" name="discriptionProject" placeholder="Введите описание проекта">
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+<div>Список проектов</div>
+<form method="post" action="filter">
+    <input type="nameProject" name="filter">
+    <button type="submit">Найти</button>
+</form>
+{{#projects}}
+    <div>
+        <b>{{id}}</b>
+        <span>{{nameProject}}</span>
+        <i>{{discriptionProject}}</i>
+    </div>
+{{/projects}}
+<div>
+    <form method="post" action="tasks">
+        <input type="text" name="nameTask" placeholder="Введите название задачи" />
+        <input type="text" name="discriptionTask" placeholder="Введите описание задачи">
+        <input type="text" name="priorityTask" placeholder="Введите приоритет задачи">
+        <input type="text" name="statusTask" placeholder="Введите статус проекта">
+        <input type="text" name="requestProject" placeholder="Введите имя проекта">
+        <input type="text" name="dateCreateTask" placeholder="Введите статус проекта">
+        <input type="text" name="dateUpdateTask" placeholder="Введите имя проекта">
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+</body>
+</html>

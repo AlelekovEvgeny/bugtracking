@@ -1,7 +1,12 @@
 package com.alelekov.bugtracking.repositories;
 
 import com.alelekov.bugtracking.entities.Projects;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProjectRepository extends CrudRepository<Projects, Long> {
+import java.util.List;
+
+public interface ProjectRepository extends JpaRepository<Projects, Long> {
+    List<Projects> findByNameProject(String nameProject);
+
+    Projects findById(int id);
 }

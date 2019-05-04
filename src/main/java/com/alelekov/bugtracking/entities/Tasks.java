@@ -1,10 +1,11 @@
 package com.alelekov.bugtracking.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
-@Table(name = "tsks")
+@Table(name = "tasks")
 public class Tasks {
 
     @Id
@@ -30,10 +31,14 @@ public class Tasks {
     @Column(name = "status")
     private int statusTask;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "project_id", nullable = false)
+    @NotNull
     Projects projects;
 
     public Tasks() {
+    }
+    public Tasks(String nameTask, String discriptionTask, int priorityTask, int statusTask, String dateCreateTask, String dateUpdateTask) {
     }
 
     public Integer getId() {

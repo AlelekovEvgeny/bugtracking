@@ -30,6 +30,11 @@ public class Projects {
     public Projects() {
     }
 
+    public Projects(String nameProject, String discriptionProject) {
+        this.nameProject = nameProject;
+        this.discriptionProject = discriptionProject;
+    }
+
     public String getNameProject() {
         return nameProject;
     }
