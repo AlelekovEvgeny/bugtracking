@@ -41,6 +41,9 @@ public class Tasks {
     public Tasks(String nameTask, String discriptionTask, int priorityTask, int statusTask, String dateCreateTask, String dateUpdateTask) {
     }
 
+    public Tasks(String nameTask, String discriptionTask) {
+    }
+
     public Integer getId() {
         return id;
     }

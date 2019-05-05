@@ -1,9 +1,4 @@
-<!DOCTYPE HTML>
 <html>
-<head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
 <body>
 <div>
     <form method="post">
@@ -22,19 +17,9 @@
         <b>{{id}}</b>
         <span>{{nameProject}}</span>
         <i>{{discriptionProject}}</i>
+        <a href="project">посмотреть</a>
     </div>
 {{/projects}}
-<div>
-    <form method="post" action="tasks">
-        <input type="text" name="nameTask" placeholder="Введите название задачи" />
-        <input type="text" name="discriptionTask" placeholder="Введите описание задачи">
-        <input type="text" name="priorityTask" placeholder="Введите приоритет задачи">
-        <input type="text" name="statusTask" placeholder="Введите статус проекта">
-        <input type="text" name="requestProject" placeholder="Введите имя проекта">
-        <input type="text" name="dateCreateTask" placeholder="Введите статус проекта">
-        <input type="text" name="dateUpdateTask" placeholder="Введите имя проекта">
-        <button type="submit">Добавить</button>
-    </form>
-</div>
+<a href="/">на главную</a>
 </body>
 </html>
