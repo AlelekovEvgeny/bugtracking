@@ -10,7 +10,7 @@ public class Projects {
     @Id
     @PrimaryKeyJoinColumn
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(name = "name_project")
     private String nameProject;
@@ -35,6 +35,10 @@ public class Projects {
         this.discriptionProject = discriptionProject;
     }
 
+    public Projects(String nameProject) {
+        this.nameProject = nameProject;
+    }
+
     public String getNameProject() {
         return nameProject;
     }
@@ -43,11 +47,11 @@ public class Projects {
         this.nameProject = nameProject;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

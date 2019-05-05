@@ -1,7 +1,18 @@
 <!DOCTYPE HTML>
 <html>
 <body>
-привет
+<div>введите номер проекта</div>
+<form method="post" action="idProject">
+    <input type="number" name="idProject">
+    <button type="submit">Найти</button>
+</form>
+{{#tasks}}
+    <div>
+        <b>{{id}}</b>
+        <span>{{nameTask}}</span>
+        <i>{{discriptionTask}}</i>
+    </div>
+{{/tasks}}
 <br>
 <a href="main">к списку проектов</a>
 <br>
