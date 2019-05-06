@@ -1,21 +1,22 @@
-<!DOCTYPE HTML>
-<html>
-<body>
+<#import "parts/common.ftl" as c>
+
+<@c.page>
 <div>введите номер проекта</div>
 <form method="post" action="idProject">
     <input type="number" name="idProject">
     <button type="submit">Найти</button>
 </form>
-{{#tasks}}
+    <#list tasks as task>
     <div>
-        <b>{{id}}</b>
-        <span>{{nameTask}}</span>
-        <i>{{discriptionTask}}</i>
+        <b>${task.id}</b>
+        <span>${task.nameTask}</span>
+        <i>${task.discriptionTask}</i>
     </div>
-{{/tasks}}
+    <#else>
+No tasks
+    </#list>
 <br>
 <a href="main">к списку проектов</a>
 <br>
 <a href="/">на главную</a>
-</body>
-</html>
+</@c.page>

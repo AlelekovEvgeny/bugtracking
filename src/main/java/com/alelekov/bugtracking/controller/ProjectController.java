@@ -22,12 +22,12 @@ public class ProjectController {
     @Autowired
     private ProjectRepository projectRepository;
 
-    @RequestMapping("project")
+    @RequestMapping("/project")
     public String home(){
         return "project";
     }
 
-    @PostMapping("idProject")
+    @PostMapping("/idProject")
     public String idProject(@RequestParam Long idProject, Map<String, Object> model, Map<String, Object> model2) {
         //Iterable<Projects> projects;
         Iterable<Tasks> tasks;

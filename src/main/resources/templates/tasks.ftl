@@ -1,6 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-<body>
+<#import "parts/common.ftl" as c>
+
+<@c.page>
 <!--<div>
     <form method="post" action="addTask">
         <input type="text" name="nameTask" placeholder="Введите название задачи" />
@@ -18,13 +18,14 @@
     <input type="nameTask" name="filter">
     <button type="submit">Найти</button>
 </form>-->
-{{#tasks}}
+    <#list tasks as task>
     <div>
-        <b>{{id}}</b>
-        <span>{{nameTask}}</span>
-        <i>{{discriptionTask}}</i>
+        <b>${task.id}</b>
+        <span>${task.nameTask}</span>
+        <i>${task.discriptionTask}</i>
     </div>
-{{/tasks}}
+    <#else>
+No tasks
+    </#list>
 <a href="/">на главную</a>
-</body>
-</html>
+</@c.page>
