@@ -6,7 +6,7 @@
         <input type="text" name="discriptionTask" placeholder="Введите описание задачи">
         <input type="text" name="priorityTask" placeholder="Введите приоритет задачи">
         <input type="text" name="statusTask" placeholder="Введите статус проекта">
-        <input type="text" name="requestProject" placeholder="Введите идентификатор проекта">
+        <input type="text" name="projectid" placeholder="Введите идентификатор проекта">
         <input type="date" name="dateCreateTask" placeholder="Введите дату создания проекта">
         <input type="date" name="dateUpdateTask" placeholder="Введите дату обновления проекта">
         <button type="submit">Добавить</button>
@@ -19,9 +19,8 @@
     <#list page.content as task>
         <div class="card my-3" data-id="${task.id}">
             <div class="m-2">
-                <b>${task.id}</b>
-                <span>${task.nameTask}</span><br/>
-                <i>#${task.discriptionTask}</i>
+                <span>${task.nameTask}</span>
+                <i>${task.discriptionTask}</i>
             </div>
         </div>
     <#else>

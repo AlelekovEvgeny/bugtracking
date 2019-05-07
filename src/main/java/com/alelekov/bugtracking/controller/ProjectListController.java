@@ -21,6 +21,8 @@ public class ProjectListController {
     @Autowired
     private ProjectRepository projectRepository;
 
+    /**
+     * вывод списка проектов с пагинацией и сортировкой по ID*/
     @GetMapping("/main")
     public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model,
                       @PageableDefault(sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable) {
@@ -39,6 +41,8 @@ public class ProjectListController {
         return "main";
     }
 
+    /**
+     * добавление проектов*/
     @PostMapping
     public String add(@RequestParam String nameProject, @RequestParam String discriptionProject, Map<String, Object> model) {
         Projects project = new Projects(nameProject, discriptionProject);

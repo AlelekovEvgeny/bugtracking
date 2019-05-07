@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class LoginController {
+
+    /**
+     * вывод домашней страницы по умолчанию*/
     @RequestMapping("/")
     public String home(){
         return "index";

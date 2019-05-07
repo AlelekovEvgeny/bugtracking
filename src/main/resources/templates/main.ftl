@@ -17,8 +17,9 @@
     <#list page.content as project>
         <div class="card my-3" data-id="${project.id}">
             <div class="m-2">
-                <span>${project.nameProject}</span><br/>
-                <i>#${project.discriptionProject}</i>
+                <b>${project.id}</b>
+                <span>${project.nameProject}</span>
+                <i>${project.discriptionProject}</i>
                 <a href="project">посмотреть</a>
             </div>
         </div>

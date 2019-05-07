@@ -16,11 +16,15 @@ public class ProjectController {
     @Autowired
     private TaskRepository taskRepository;
 
+    /**
+     * для поподания на страницу списка задач конкретного проекта*/
     @RequestMapping("/project")
     public String home(){
         return "project";
     }
 
+    /**
+     * вывод списка задач для выбронного проекта по ID*/
     @PostMapping("/idProject")
     public String idProject(@RequestParam Long idProject, Map<String, Object> model2) {
         Iterable<Tasks> tasks;
