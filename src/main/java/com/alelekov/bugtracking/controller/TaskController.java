@@ -29,7 +29,25 @@ public class TaskController {
 
     @GetMapping("/tasks")
     public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model,
-                       @PageableDefault(sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable) {
+                       @PageableDefault(sort = { "priorityTask" }, direction = Sort.Direction.ASC) Pageable pageable) {
+        Page<Tasks> page;
+
+        if (filter != null && !filter.isEmpty()) {
+            page = taskRepository.findByNameTask(filter, pageable);
+        } else {
+            page = taskRepository.findAll(pageable);
+        }
+
+        model.addAttribute("page", page);
+        model.addAttribute("url", "/tasks");
+        model.addAttribute("filter", filter);
+
+        return "tasks";
+    }
+
+    @GetMapping("/tasksDateSort")
+    public String mainDateSort(@RequestParam(required = false, defaultValue = "") String filter, Model model,
+                       @PageableDefault(sort = { "dateCreateTask" }, direction = Sort.Direction.DESC) Pageable pageable) {
         Page<Tasks> page;
 
         if (filter != null && !filter.isEmpty()) {

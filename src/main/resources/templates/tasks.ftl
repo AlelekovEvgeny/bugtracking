@@ -30,6 +30,7 @@
 No tasks
     </#list>
 -->
+<a href="tasksDateSort">Отсортировать по дате</a>
 
 <div class="card-columns" id="task-list">
     <#list page.content as task>
