@@ -5,7 +5,12 @@ import com.alelekov.bugtracking.entities.Tasks;
 import com.alelekov.bugtracking.repositories.ProjectRepository;
 import com.alelekov.bugtracking.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,11 +27,20 @@ public class TaskController {
     @Autowired
     private TaskRepository taskRepository;
 
-    @GetMapping("tasks")
-    public String main(Map<String, Object> model) {
-        Iterable<Tasks> tasks = taskRepository.findAll();
+    @GetMapping("/tasks")
+    public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model,
+                       @PageableDefault(sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable) {
+        Page<Tasks> page;
 
-        model.put("tasks", tasks);
+        if (filter != null && !filter.isEmpty()) {
+            page = taskRepository.findByNameTask(filter, pageable);
+        } else {
+            page = taskRepository.findAll(pageable);
+        }
+
+        model.addAttribute("page", page);
+        model.addAttribute("url", "/tasks");
+        model.addAttribute("filter", filter);
 
         return "tasks";
     }

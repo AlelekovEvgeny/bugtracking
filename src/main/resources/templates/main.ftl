@@ -33,10 +33,11 @@ No projects
             <div class="m-2">
                 <span>${project.nameProject}</span><br/>
                 <i>#${project.discriptionProject}</i>
+                <a href="project">посмотреть</a>
             </div>
         </div>
     <#else>
-        No message
+        No projects
     </#list>
 </div>
 <@p.pager url page />
