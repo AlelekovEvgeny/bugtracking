@@ -13,9 +13,8 @@
     </form>
 </div>
 <div>Список задач</div>
-<@p.pager url page />
 <a href="tasksDateSort">Отсортировать по дате</a>
-
+<@p.pager url page />
 <div class="card-columns" id="task-list">
     <#list page.content as task>
         <div class="card my-3" data-id="${task.id}">
