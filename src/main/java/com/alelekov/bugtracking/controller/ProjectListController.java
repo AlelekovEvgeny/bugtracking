@@ -2,14 +2,13 @@ package com.alelekov.bugtracking.controller;
 
 import com.alelekov.bugtracking.entities.Projects;
 import com.alelekov.bugtracking.repositories.ProjectRepository;
-import com.alelekov.bugtracking.repositories.TaskRepository;
-import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,12 +20,6 @@ public class ProjectListController {
 
     @Autowired
     private ProjectRepository projectRepository;
-
-  /*  @GetMapping("index")
-    public String start() {
-
-        return "index";
-    }*/
 
     @GetMapping("/main")
     public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model,
@@ -58,44 +51,4 @@ public class ProjectListController {
 
         return "main";
     }
-
-    /*@PostMapping("filter")
-    public String filter(@RequestParam String filter, Model model,
-                         @PageableDefault(sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable) {
-        Page<Projects> page;
-
-        if (filter != null && !filter.isEmpty()) {
-            page = projectRepository.findByNameProject(filter, pageable);
-        } else {
-            page = projectRepository.findAll(pageable);
-        }
-
-        model.addAttribute("page", page);
-        model.addAttribute("url", "/main");
-        model.addAttribute("filter", filter);
-
-        return "main";
-    }*/
-    /**
-     * @GetMapping("/main")
-     *     public String main(
-     *             @RequestParam(required = false, defaultValue = "") String filter,
-     *             Model model,
-     *             @PageableDefault(sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable
-     *     ) {
-     *         Page<Message> page;
-     *
-     *         if (filter != null && !filter.isEmpty()) {
-     *             page = messageRepo.findByTag(filter, pageable);
-     *         } else {
-     *             page = messageRepo.findAll(pageable);
-     *         }
-     *
-     *         model.addAttribute("page", page);
-     *         model.addAttribute("url", "/main");
-     *         model.addAttribute("filter", filter);
-     *
-     *         return "main";
-     *     }*/
-
 }
